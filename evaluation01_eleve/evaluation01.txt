@@ -1,0 +1,117 @@
+﻿code_cell:
+from outils import* # outils nécessaires au notebook
+
+
+markdown_cell:
+# §red;u; Bases du langage Python : évaluation 01 du lundi 17/X/2022§ #
+![alt text](mes_images/logo_python.png "logo du langage Python")
+Activer la cellule de code ci-dessous et répondre à la question en saisissant son nom puis son prénom.
+code_cell:
+nom1=input("Donner le nom de l'élève évalué : ")
+prenom1=input("Donner le prénom de l'élève évalué : ")
+
+
+markdown_cell:
+<div class="alert alert-info"><strong>Exercice 1 : </strong> 
+On souhaite répartir 27 paquets de bonbons entre 6 personnes, les paquets restants seront ouverts et placés dans le pot commun.
+1) Combien de paquets entiers auront chacune des six personnes ?
+2) Combien de paquets restants seront ouverts pour le pot commun ?
+Compléter les lignes de code ci-dessous pour répondre aux deux questions et exécute la cellule</div>
+
+
+code_cell:
+nb_entier =       # ecris après le égal l'opération qui permet de calculer nb_entier
+nb_restant =      # écris après le égal l'opération qui permet de calculer nb_restant.
+print("Chaque personne recevra", nb_entier," paquets entiers et ",nb_restant," paquets seront pour le pot commun.")
+
+markdown_cell:
+<div class="alert alert-info"><strong>Exercice 2 : </strong>
+Ecris une instruction qui calcule et affiche la valeur de $N=2^{22}$.
+</div>
+
+code_cell:
+#écris ci-dessous le code qui permet de calculer "2 puissance 22" et qui affiche le résultat de ce calcul
+
+
+markdown_cell:
+<div class="alert alert-info"><strong>Exercice 3 : </strong>
+On souhaite effectuer le calcul du volume d'une boule de rayon $\mathcal{R}=5 cm$ à l'aide de Python. On rappelle que le volume d'une boule est donné par la formule $V=\frac{4}{3}\pi\mathcal{R}^{3}$. On prendra comme valeur approchée $\pi≈3.14$
+</div>
+
+code_cell:
+#complète les deux premières lignes de code et exécute la cellule.
+rayon = 
+volume =
+print("Le volume d'une boule de rayon ",rayon," cm est environ ",volume," cm3")
+
+markdown_cell:
+<div class="alert alert-info"><strong>Exercice 4 : </strong> 
+On souhaite savoir combien déquipes de 11 joueurs il est possible de faire avec 148 personnes. Les personnes restantes officieront en tant qu'arbitre.
+Il y a 6 terrains possibles. Y aura-t-il un arbitre par terrain ? 
+L'exécution du code ci-dessous entraîne un message d'erreur : tu dois le vérifier en exécutant la cellule et lire le message d'erreur qui te donnera un indice pour la résolution du problème.
+Complète alors les lignes indiquées pour lever l'erreur et pour afficher le nombre d'équipes et le nombre d'arbitres. Active alors la cellule.
+</div>
+
+code_cell:
+nb_joueurs = input("Donner le nombre total de joueurs : ")
+            #ecris au début de cette ligne l'instruction qui lève l'erreur
+nb_equipes = nb_joueurs // 11
+nb_arbitres = nb_joueurs % 11
+#ecris ci-dessus les instructions qui affichent le nombres d'équipes et le nombre d'arbitres.
+
+#facultatif : ecrire un test qui permet de savoir si le nombre d'arbitres est suffisant
+
+
+markdown_cell:
+<div class="alert alert-info"><strong>Exercice 5 : </strong> 
+Un manga coûte 7,80 €, une BD  8,40 €.
+Ecrire un algorithme qui demande le nombre de mangas et de BD à l'utilisateur et qui renvoie un message
+donnant le prix à payer avec un affichage donnant le détail ainsi : 
+manga   : prix1
+BD      :prix2
+total   : prix_tot
+</div>
+code_cell:
+# ecrire ici le code
+
+
+
+markdown_cell:
+Sauvegarder ce notebook dans ses documents personnels et en placer une copie dans restitution de devoirs
+en le nommant **evaluation01_nom_prenom.ipynb**
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
