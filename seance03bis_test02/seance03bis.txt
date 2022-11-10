@@ -1,0 +1,179 @@
+code_cell:
+from outils import* # outils nécessaires au notebook
+
+
+markdown_cell:
+# §red;u; Conditions, tests et booléens § #
+![alt text](mes_images/logo_python.png "logo du langage Python")
+
+# § skyblue; Sommaire § #
+## § skyblue; 1 Les conditions § ##
+## § skyblue;2 Les booléens § ##
+## § skyblue;3 Les conditions multiples § ##
+
+ 
+
+
+markdown_cell:
+<h2 style="text-decoration:underline;" id="partie3">3- Les conditions multiples</h2>
+On a parfois besoin de tester plusieurs conditions successivement comme dans l'exemple suivant.
+
+**Le problème du pass sanitaire**
+On demande à une personne si elle est vaccinée et si elle a un test PCR négatif.<br>
+Si elle est vaccinée, elle peut entrer.<br>
+Sinon, elle ne peut entrer que si elle a un test PCR négatif.<br>
+
+code_cell:
+rep_vacc = input("Etes-vous vacciné (O/N)?") #on demande si l'utilisateur est vacciné
+vaccine = (rep-vacc == 'O' or 'o') # on affecte à la variable vacciné le résultat du test True ou bien False
+rep_test = input("Avez-vous un test PCR négatif (O/N)?") # on demande à l'utilisateur le résultat de son test pcr 
+testNegatif = (rep_test == 'O' or 'o') # on affecte à la variable testNegatif le résultat du test True ou bien False          
+if vaccine:
+    print("Vous pouvez entrer...")
+else:
+    if testNegatif:
+          print("Vous pouvez entrer!")
+    else:
+          print("Vous ne pouvez pas entrer!")
+
+markdown_cell:
+Le défaut de ce programme est qu'il est assez difficile à lire.
+En Python, on dispose d'une syntaxe plus lègère qui permet de clarifier un peu le programme : on peut condenser le else if en une seule ligne elif.
+Le programme ci-dessous fait exactement la même chose que le précédent mais nécessite une ligne de moins et fait moins appel à l'indentation dans les deux dernières lignes :
+
+code_cell:
+rep_vacc = input("Etes-vous vacciné (O/N)?") #on demande si l'utilisateur est vacciné
+vaccine = (rep-vacc == 'O' or 'o') # on affecte à la variable vacciné le résultat du test True ou bien False
+rep_test = input("Avez-vous un test PCR négatif (O/N)?") # on demande à l'utilisateur le résultat de son test pcr 
+testNegatif = (rep_test == 'O' or 'o') # on affecte à la variable testNegatif le résultat du test True ou bien False   
+          
+if vaccine:
+    print("Vous pouvez entrer...")
+elif testNegatif:
+    print("Vous pouvez entrer!")
+else:
+    print("Vous ne pouvez pas entrer!")
+
+markdown_cell:
+<div class="alert alert-info"><strong>Exercice 8 : </strong> Ecrire un programme qui demande à l'utilisateur sa moyenne du bac et qui lui indique sa mention.
+<table>
+    <tr>
+        <td style="border:1px solid"><strong>Moyenne</strong></td><td style="border:1px solid; text-align: center">$[0;8[$</td><td style="border:1px solid; text-align: center">$[8;10[$</td><td style="border:1px solid; text-align: center">$[10;12[$</td>
+        <td style="border:1px solid; text-align: center">$[12;14[$</td><td style="border:1px solid; text-align: center">$[14;16[$</td><td style="border:1px solid; text-align: center">$[16;18[$</td><td style="border:1px solid; text-align: center">$[18;20]$</td>
+    </tr>
+    <tr>
+        <td style="border:1px solid"><strong>Mention</strong></td><td style="border:1px solid;text-align: center">Recalé</td><td style="border:1px solid;text-align: center">Rattrapage</td><td style="border:1px solid; text-align: center">Sans mention</td><td style="border:1px solid; text-align: center">Assez bien</td>
+        <td style="border:1px solid; text-align: center">Bien</td><td style="border:1px solid;text-align: center">Très bien</td><td style="border:1px solid; text-align: center">Félicitations</td>
+    </tr>
+</table>
+</div>
+code_cell:
+#ecris ton code ici
+
+markdown_cell:
+<div class="alert alert-info"><strong>Exercice 9 : </strong> Ecrire un programme qui demande une année à l'utilisateur et indique s'il s'agit d'une année bissextile.<br>
+Une année est bissextile si elle est multiple de 4 mais pas multiple de 100, ou si elle est multiple de 400.<br>
+Tester ensuite votre programme avec les années 2021, 2020, 1900 et 2000.
+</div>
+
+code_cell:
+annee = input("Veuillez saisir une année : ")
+annee = int(anne) #on convertit la saisie de l'année en nomnbre entier
+
+markdown_cell:
+**Les opérateurs booléens**
+On peut combiner plusieurs expressions booléennes avec les opérateurs <code>and</code>, <code>or</code> et <code>not</code>.
+Dans le cadre des instructions conditionnelles, ces opérateurs permettent d'éviter de recourir à des conditions imbriquées.
+markdown_cell:
+<table>
+    <tr><th style="border:1px solid #000000; text-align: center;">Mot-clé</th><th style="border:1px solid #000000; text-align: center;">En Français</th><th style="border:1px solid #000000; text-align: center;">Nom</th><th style="border:1px solid #000000; text-align: center;">Description</th></tr>
+    <tr><td style="border:1px solid #000000; text-align: center;"><code>and</code></td><td style="border:1px solid #000000; text-align: center;">et</td><td style="border:1px solid #000000; text-align: center;">conjonction</td><td style="border:1px solid #000000; text-align: center;"><code>c1 and c2</code> est vraie lorsque $c_1$ et $c_2$ sont toutes les deux vraies</td></tr>
+    <tr><td style="border:1px solid #000000; text-align: center;"><code>or</code></td><td style="border:1px solid #000000; text-align: center;">ou</td><td style="border:1px solid #000000; text-align: center;">disjonction</td><td style="border:1px solid #000000; text-align: center;"><code>c1 or c2</code> est vraie lorsqu'au moins une des deux conditions $c_1$ ou $c_2$ est vraie</td></tr>
+    <tr><td style="border:1px solid #000000; text-align: center;"><code>not</code></td><td style="border:1px solid #000000; text-align: center;">non</td><td style="border:1px solid #000000; text-align: center;">négation</td><td style="border:1px solid #000000; text-align: center;"><code>not c</code> est vraie lorsque $c$ est fausse</td></tr>  
+</table>
+
+Voici la <strong>table de vérité</strong> de ces trois opérateurs :
+
+<table>
+    <tr><th style="border:1px solid #000000; text-align: center;">$c_1$</th><th style="border:1px solid #000000; text-align: center;">$c_2$</th><th style="border:1px solid #000000; text-align: center;">$c_1$ and $c_2$</th><th style="border:1px solid #000000; text-align: center;">$c_1$ or $c_2$</th><th style="border:1px solid #000000; text-align: center;">not $c_1$</th></tr>
+    <tr><td style="border:1px solid #000000; text-align: center;">Vrai</td><td style="border:1px solid #000000; text-align: center;">Vrai</td><td style="border:1px solid #000000; text-align: center;">Vrai</td><td style="border:1px solid #000000; text-align: center;">Vrai</td><td style="border:1px solid #000000; text-align: center;">Faux</td></tr>
+    <tr><td style="border:1px solid #000000; text-align: center;"><code>Vrai</code></td><td style="border:1px solid #000000; text-align: center;">Faux</td><td style="border:1px solid #000000; text-align: center;">Faux</td><td style="border:1px solid #000000; text-align: center;">Vrai</td><td style="border:1px solid #000000; text-align: center;">Faux</td></tr>
+    <tr><td style="border:1px solid #000000; text-align: center;">Faux</td><td style="border:1px solid #000000; text-align: center;">Vrai</td><td style="border:1px solid #000000; text-align: center;">Faux</td><td style="border:1px solid #000000; text-align: center;">Vrai</td><td style="border:1px solid #000000; text-align: center;">Vrai</td></tr> 
+    <tr><td style="border:1px solid #000000; text-align: center;">Faux</td><td style="border:1px solid #000000; text-align: center;">Faux</td><td style="border:1px solid #000000; text-align: center;">Faux</td><td style="border:1px solid #000000; text-align: center;">Faux</td><td style="border:1px solid #000000; text-align: center;">Vrai</td></tr> 
+</table>
+
+<span style="text-decoration:underline;">Remarque</span> : Python autorise ici une syntaxe plus courte que ne permettent pas les autres langages.
+Pour tester si un nombre est compris entre 3 et 7, on peut écrire <code>3 &lt; x &lt; 7</code> au lieu de <code>3 &lt; x and x &lt; 7</code>.
+markdown_cell:
+
+**Nouvelle résolution du problème du pass sanitaire** Avec les booléens, on peut résoudre le problème du pass sanitaire de façon plus élégante, 
+plus claire et plus courte qu'avec des condtions imbriquées :
+
+code_cell:
+rep_vacc = input("Etes-vous vacciné (O/N)?") #on demande si l'utilisateur est vacciné
+vaccine = (rep-vacc == 'O' or 'o') # on affecte à la variable vacciné le résultat du test True ou bien False
+rep_test = input("Avez-vous un test PCR négatif (O/N)?") # on demande à l'utilisateur le résultat de son test pcr 
+testNegatif = (rep_test == 'O' or 'o') # on affecte à la variable testNegatif le résultat du test True ou bien False   
+          
+#ecrire ici la suite du test un if et un else seulement
+
+
+markdown_cell:
+<div class="alert alert-info"><strong>Exercice 10 : </strong> Reprendre le problème des années bissextiles (exercice 9) en utilisant des opérateurs booléens à la place des conditions imbriquées.
+Une année est bissextile si elle est multiple de 4 mais pas multiple de 100, ou si elle est multiple de 400.
+Tester ensuite votre programme avec les années 2021, 2020, 1900 et 2000.
+</div>
+code_cell:
+#ecris ton code ici un seul if et un else
+
+markdown_cell:
+<div class="alert alert-info"><strong>Exercice 11 : </strong> 
+1) Ecrire un programme qui dit si le triangle est isocèle ou bien équilatéral ou scalène
+2) Ecrire un programme qui permet de dire si un triangle est rectangle 
+(on convient que l'hypoténuse est la première distance saisie par l'utilisateur)
+3) Même question que la 2°) mais l'hypoténuse n'est pas forcément saisie en premier 
+
+</div>
+code_cell:
+#question 1 : ecris ton code ici 
+
+code_cell:
+#question 2 : ecris ton code ici
+
+code_cell:
+#question 3 : ecris ton code ici
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

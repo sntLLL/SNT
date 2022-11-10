@@ -1,0 +1,228 @@
+code_cell:
+from outils import* # outils nécessaires au notebook
+
+
+markdown_cell:
+# §red;u; Conditions, tests et booléens § #
+![alt text](mes_images/logo_python.png "logo du langage Python")
+
+# § skyblue; Sommaire § #
+## § skyblue; 1 Les conditions § ##
+## § skyblue;2 Les booléens § ##
+## § skyblue;3 Les conditions multiples § ##
+
+Les **conditions** nous permettent de rendre nos programmes adaptatifs en leur donnant la possibilité de se comporter différemment selon qu'une certaine condition est réalisée ou pas.
+
+<h2 style="text-decoration:underline;" id="partie1">1- Les conditions</h2><br><br>
+Le diagramme ci-dessous donne la structure conditionnelle de base : **si ... alors ... sinon...**
+markdown_cell:
+![alt text](mes_images/schemacondition.png "diagramme d'une condition de base")
+
+Cela correspond au pseudo-code suivant :
+<code>
+instructions A
+Si condition vraie faire :
+    instructions B
+Sinon
+    instructions C
+instructions D
+</code><br>
+En Python, les mot-clés sont £if£ (si) et £else£ (sinon) : <br>
+<code>
+instructions A
+if condition :
+    B
+else:
+    C
+D
+</code>
+Notez bien que les instructions des blocs B et C sont décalées (une indentation) par rapport au £if£ et £else£
+Les instructions du bloc D seront exécutées quelque soit la valeur de la condition du si car elle n'est pas indentée (pas de décalage)<br>
+Le programme ci-dessous adapte son comportement à la réponse fournie par l'utilisateur :
+code_cell:
+âge = int(input("Veuillez entrer votre âge ! "))
+if (âge >= 18):
+    print("Vous êtes majeur!")
+else:
+    print("Vous êtes mineur!")
+print("Au revoir!")
+
+markdown_cell:
+<div class="alert alert-info"><strong>Exercice 1 : </strong> Il faut mesurer au moins 1m30 pour pouvoir entrer dans un parc d'attractions.<br>
+Ecrire un programme qui demande à l'utilisateur sa taille en cm, et qui lui indique s'il peut ou non rentrer dans le parc.   
+</div>
+
+code_cell:
+#ecris ici ton code
+
+markdown_cell:
+<div class="alert alert-info"><strong>Exercice 2 : </strong> Ecrire un programme qui demande à l'utilisateur de saisir deux nombres, puis qui affiche <strong>le plus grand</strong> de ces deux nombres.   
+</div>
+
+code_cell:
+#ecris ici ton code
+
+markdown_cell:
+Voici les différents tests possibles :
+markdown_cell:
+<table>
+    <tr><th>Symbole</th><th>Signification</th></tr>
+    <tr><td>==</td><td>égal à</td></tr>
+    <tr><td>!=</td><td>différent de</td></tr> 
+    <tr><td>$<$</td><td>strictement supérieur à</td></tr>
+    <tr><td>$>$</td><td>strictement inférieur à</td></tr>
+    <tr><td>$<=$</td><td>inférieur ou égal à</td></tr>
+    <tr><td>$>=$</td><td>supérieur ou égal à</td></tr>        
+</table>
+
+markdown_cell:
+<p style="background-color:rgb(220,150,200);"><strong>Attention</strong> à la différence entre = et ==  <br>
+Le symbole = est réservé pour l'affectation.<br>
+Le symbole == sert à comparer deux valeurs, plus précisément à savoir si deux valeurs sont égales. <br>
+Cette confusion est une importante source de bug chez les débutants en programmation.</p>
+
+markdown_cell:
+<div class="alert alert-info"><strong>Exercice 3 : </strong> Ecrire un programme qui demande à l'utilisateur de saisir le mot de passe qui permet de se connecter au serveur de la NASA, et qui lui indique si l'accès est autorisé ou pas.<br>
+Le mot de passe est "azerty".  
+</div>
+
+code_cell:
+#ecris ici ton code
+
+markdown_cell:
+**Sttructure conditionnelle incomplète :** §b;i;si ... alors...§
+
+La clause £else£ est facultative. On obtient alors la structure suivante :<br>
+<code>
+    Bloc A
+    Si condition vraie faire :
+        Bloc B
+    Bloc C
+</code>
+Ainsi, si la condition est vraie, on effectuera les blocs A-B-C.<br>
+Si la condition n'est pas vraie, on effectuera les blocs A-C
+
+markdown_cell:
+<div class="alert alert-info"><strong>Exercice 4 : </strong> Réécrire le programme qui affiche la plus grande des deux valeurs saisies par l'utilisateur, mais cette fois sans utiliser la clause <code>else</code>. 
+</div>
+code_cell:
+#ecris ton code
+
+markdown_cell:
+<h2 style="text-decoration:underline;" id="partie1">2- Les booléens</h2><br><br>
+
+markdown_cell:
+<p>Comme on peut le voir en exécutant les trois cellules ci-dessous, des expressions comme <code>7&gt;4</code> ou <code>8&lt;2</code> ont une valeur d'un nouveau type appelé le type <strong>booléen</strong>.</p>
+<p><span style="background-color:yellow; border:solid;padding:2px">Une variable booléenne ne peut prendre que deux valeurs : <strong>True</strong> ou <strong>False</strong></span></p>
+<p>True signifie "Vrai", False signifie "Faux".</p>
+<p style="text-align:justify;">Le mot "booléen" provient de George Boole (1815-1864), un mathématicien et logicien anglais qui a créé l'algèbre binaire, aujourd'hui appelée algèbre booléenne. Cette algèbre booléenne permet de traduire des raisonements logiques par des calculs algébriques.</p> 
+
+code_cell:
+#execute le code suivant
+7>4
+a=7>4
+print(a)
+type(a)
+
+#recommence avec 8<2
+
+markdown_cell:
+<div class="alert alert-info"><strong>Exercice 5 : </strong> Déterminer pour chaque ligne le type et la valeur de chacune des variables ou expressions ci-dessous.<br>
+    On suppose que les lignes sont exécutées l'une après l'autre.<br>
+<code>
+x = 18
+x > 7
+x == 6
+x > 7
+x = 6
+x > 7
+x == 6
+</code>    
+</div>    
+
+markdown_cell:
+<div class="alert alert-info"><strong>Exercice 6 : </strong> Qu'affiche le code suivant ? 
+<p style="border:solid;">
+    <code>
+b = 5
+a = (b == 3)
+print(a)</code>
+    </p>
+</div>
+code_cell:
+#ecris le code python
+
+markdown_cell:
+Les booléens (ou variables booléennes) sont utilisés dans les conditions. En fait, l'expression qui suit le £if£ doit toujours être une valeur ou une variable de type booléen :
+code_cell:
+majeur = True    # ou False
+if majeur == True:
+    print("Vous êtes majeur.")
+else:
+    print("Vous êtes mineur")
+markdown_cell:
+<strong>Syntaxe raccourcie des conditions</strong><br>
+Dans le programme précédent, £majeur == True£ est en fait un booléen qui vaut £True£ ou £False£ selon la valeur de la variable £majeur£.<br>
+Ainsi, les booléens permettent une syntaxe raccourcie et plus lisible lorsqu'on écrit des conditions : <br>
+Au lieu d'écrire £if majeur == True:£<br> on peut écrire : £if majeur:£<br>
+Il est préférable d'utiliser cette syntaxe raccourcie.
+code_cell:
+majeur = True    # ou False
+if majeur:
+    print("Vous êtes majeur.")
+else:
+    print("Vous êtes mineur")
+markdown_cell:
+<div class="alert alert-info"><strong>Exercice 7 : </strong> Ecrire un programme qui :
+    <ol>
+        <li>
+            Demande à l'utilisateur sa taille en cm
+        </li>
+        <li>
+            Crée une variable booléenne appelée "grand" dont la valeur dépend de la taille saisie
+        </li>
+        <li>
+            Affiche un message différent selon que l'utilisateur est grand ou pas<br>
+            Par exemple : "Vous avez le droit (ou pas le droit) de monter dans ce manège."</li>
+    </ol>
+</div>
+
+code_cell:
+#ecris ton code
+
+markdown_cell:
+<h2 style="text-decoration:underline;" id="partie3">3- Les conditions multiples</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
